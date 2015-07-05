@@ -8,7 +8,7 @@ app.views.Notifications = Backbone.View.extend({
   },
 
   initialize: function() {
-    $(".unread-toggle .entypo").tooltip();
+    $(".unread-toggle .entypo-eye").tooltip();
     app.helpers.timeago($(document));
   },
 
@@ -54,7 +54,7 @@ app.views.Notifications = Backbone.View.extend({
     var change = unread ? 1 : -1,
         allNotes = $(".list-group > a:eq(0) .badge"),
         typeNotes = $(".list-group > a[data-type=" + type + "] .badge"),
-        headerBadge = $("#notification_badge .badge_count"),
+        headerBadge = $("#notifications-link .badge"),
         note = $(".stream_element[data-guid=" + guid + "]"),
         markAllReadLink = $("a#mark_all_read_link"),
         translationKey = unread ? "notifications.mark_read" : "notifications.mark_unread";
@@ -62,7 +62,7 @@ app.views.Notifications = Backbone.View.extend({
     if(unread){ note.removeClass("read").addClass("unread"); }
     else { note.removeClass("unread").addClass("read"); }
 
-    $(".unread-toggle .entypo", note)
+    $(".unread-toggle .entypo-eye", note)
         .tooltip("destroy")
         .removeAttr("data-original-title")
         .attr("title",Diaspora.I18n.t(translationKey))
@@ -70,7 +70,8 @@ app.views.Notifications = Backbone.View.extend({
 
     [allNotes, typeNotes, headerBadge].forEach(function(element){
       element.text(function(i, text){
-        return parseInt(text) + change });
+        return parseInt(text) + change;
+      });
     });
 
     [allNotes, typeNotes].forEach(function(badge) {

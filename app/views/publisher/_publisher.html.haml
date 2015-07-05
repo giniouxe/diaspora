@@ -29,13 +29,13 @@
           #button_container
             #publisher-images.pull-right
               #poll_creator.btn.btn-link{title: t('shared.publisher.poll.add_a_poll')}
-                %i.entypo.bar-graph
+                %i.entypo-bar-graph
               #file-upload.btn.btn-link{title: t('shared.publisher.upload_photos')}
-                %i.entypo.camera.publisher_image
+                %i.entypo-camera.publisher_image
               #locator.btn.btn-link{title: t('shared.publisher.get_location')}
-                %i.entypo.location.publisher_image
+                %i.entypo-location.publisher_image
               #hide_location.btn.btn-link{title: t('shared.publisher.remove_location')}
-                %i.entypo.cross.publisher_image
+                %i.entypo-cross.publisher_image
             %span.markdownIndications
               != t('shared.publisher.formatWithMarkdown', markdown_link: link_to(t('help.markdown'), 'https://diasporafoundation.org/formatting', target: :blank))
 
@@ -60,8 +60,10 @@
               - if current_user.services
                 - for service in current_user.services
                   = service_button(service)
-              %a.btn.btn-link{ href: "#question_mark_pane", class: 'question_mark', rel: 'facebox', title: t('shared.public_explain.manage') }
-                %i.entypo.cog
+              .btn.btn-link{ class: "question_mark",
+                             title: t("shared.public_explain.manage"),
+                             data:  {toggle: "modal", target: "#publicExplainModal"}}
+                %i.entypo-cog
 
             = render partial: "publisher/aspect_dropdown", locals: { :selected_aspects => selected_aspects }
 
@@ -73,10 +75,8 @@
               %span.text
                 = t('shared.publisher.share')
 
-          .facebox_content
-            #question_mark_pane
-              = render 'shared/public_explain'
     = link_to '', contacts_path(:aspect_ids => aspect_ids), class: 'selected_contacts_link hidden'
 
-
     #publisher_photo_upload
+
+= render 'shared/public_explain'

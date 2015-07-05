@@ -3,11 +3,13 @@
 @import "_mixins";
 @import "vendor/autoSuggest";
 @import "_flash_messages";
-@import 'entypo-fonts';
 @import 'entypo';
+@import 'icons';
 
 @import "header";
 @import "mobile/tags";
+@import "mobile/conversations";
+@import "mobile/settings";
 
 a {
   color: #2489ce;
@@ -136,6 +138,7 @@ h3 {  margin-top: 0; }
   }
 }
 
+.settings_container,
 .stream_element,
 #login_form {
   border-radius: 5px;
@@ -148,15 +151,37 @@ h3 {  margin-top: 0; }
   border-bottom-color: #aaa;
 }
 
-.stream_element div.img img.avatar {
-  margin: 10px;
-}
+.stream_element {
+  padding: 0px;
 
-.stream_element .bd {
-  padding-top: 10px;
-}
+  div.img img.avatar {
+    margin: 10px;
+  }
 
-.stream_element .media { padding: 0; }
+  .bd {
+    padding-top: 10px;
+  }
+
+  .media {
+    padding: 0;
+  }
+
+  .photo_attachments {
+    border-radius: 3px 3px 0 0;
+
+    border: {
+      bottom: 1px solid #ccc;
+    }
+
+    img.big-stream-photo {
+      border-radius: 3px 3px 0 0;
+      width: 100%;
+    }
+    a {
+      padding: 0; }
+    margin-top: 0;
+  }
+}
 
 .photo_attachments {
   position: relative;
@@ -292,12 +317,15 @@ h3 {  margin-top: 0; }
   right: 5%;
 }
 
-#author_info {
+.header-full-width {
   margin: -10px;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
   padding-top: 5px;
   background-color: #fff;
   border-bottom: 1px solid #aaa;
+}
+
+#author_info {
   word-wrap: break-word;
 
   img {
@@ -388,13 +416,6 @@ h3 {  margin-top: 0; }
     }
   }
 
-  .show_comments.bottom_collapse {
-    position: absolute;
-    right: 10px;
-    top: 14px;
-    padding: 5px 10px;
-  }
-
   #bottom_bar_tabs {
     display: table;
     width: 100%;
@@ -426,22 +447,7 @@ h3 {  margin-top: 0; }
 }
 
 .floater {
-  float: right; }
-
-.stream_element .photo_attachments {
-  border-radius: 3px 3px 0 0;
-
-  border: {
-    bottom: 1px solid #ccc;
-  }
-
-  img.big-stream-photo {
-    border-radius: 3px 3px 0 0;
-    width: 100%;
-  }
-  a {
-    padding: 0; }
-  margin-top: 0;
+  float: right;
 }
 
 .photo_area {
@@ -598,7 +604,6 @@ select {
   overflow: hidden;
 }
 
-.stream_element { padding: 0; }
 
 .notifications {
   list-style: none;
@@ -627,23 +632,6 @@ select {
   font-size: 10px;
   line-height: 12px;
 
-}
-
-.conversation_participants img.avatar {
-  height:35px;
-  width:35px;
-  margin: 5px 0 5px 2px;
-}
-
-.conversations {
-  img.avatar {
-    margin: 10px;
-    float: left;
-  }
-  .no-messages {
-    text-align: center;
-    margin-top: 40px;
-  }
 }
 
 .unread_message_count {
@@ -892,20 +880,6 @@ form p.checkbox_select {
     color: #505050;
     text-decoration: none;
     border: 1px solid;
-  }
-}
-
-#settings_nav {
-  font-size: 1em;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-
-  li {
-    display: inline;
   }
 }
 

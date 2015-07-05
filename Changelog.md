@@ -31,20 +31,52 @@ bind to an UNIX socket at `unix:tmp/diaspora.sock`. Please change your local
 * Update listen configuration to listen on unix sockets by default [#5974](https://github.com/diaspora/diaspora/pull/5974)
 * Port to Bootstrap 3 [#6015](https://github.com/diaspora/diaspora/pull/6015)
 * Use a fixed width for the mobile drawer [#6057](https://github.com/diaspora/diaspora/pull/6057)
+* Replace jquery.autoresize with autosize [#6104](https://github.com/diaspora/diaspora/pull/6104)
+* Improve mobile conversation design [#6087](https://github.com/diaspora/diaspora/pull/6087)
+* Replace remaining faceboxes with Bootstrap modals [#6106](https://github.com/diaspora/diaspora/pull/6106) [#6161](https://github.com/diaspora/diaspora/pull/6161)
+* Rewrite header using Bootstrap 3 [#6109](https://github.com/diaspora/diaspora/pull/6109) [#6130](https://github.com/diaspora/diaspora/pull/6130) [#6132](https://github.com/diaspora/diaspora/pull/6132)
+* Use upstream CSS mappings for Entypo [#6158](https://github.com/diaspora/diaspora/pull/6158)
 
 ## Bug fixes
 * Destroy Participation when removing interactions with a post [#5852](https://github.com/diaspora/diaspora/pull/5852)
 
 ## Features
 * Support color themes [#6033](https://github.com/diaspora/diaspora/pull/6033)
+* Add mobile services and privacy settings pages [#6086](https://github.com/diaspora/diaspora/pull/6086)
 
 # 0.5.2.0
 
 ## Refactor
 * Update perfect-scrollbar [#6085](https://github.com/diaspora/diaspora/pull/6085)
+* Remove top margin for first heading in a post [#6110](https://github.com/diaspora/diaspora/pull/6110)
+* Add link to pod statistics in right navigation [#6117](https://github.com/diaspora/diaspora/pull/6117)
+* Update to Rails 4.2.3 [#6140](https://github.com/diaspora/diaspora/pull/6140)
+
+## Bug fixes
+* Precompile facebox images [#6105](https://github.com/diaspora/diaspora/pull/6105)
+* Fix wrong closing a-tag [#6111](https://github.com/diaspora/diaspora/pull/6111)
+* Fix mobile more-button wording when there are less than 15 posts [#6118](https://github.com/diaspora/diaspora/pull/6118)
+* Fix reappearing flash boxes during sign-in [#6146](https://github.com/diaspora/diaspora/pull/6146)
 
 ## Features
 * Add configuration options for some debug logs [#6090](https://github.com/diaspora/diaspora/pull/6090)
+* Send new users a welcome message from the podmin [#6128](https://github.com/diaspora/diaspora/pull/6128)
+* Cleanup temporary upload files daily [#6147](https://github.com/diaspora/diaspora/pull/6147)
+
+# 0.5.1.2
+
+diaspora\* versions prior 0.5.1.2 leaked potentially private profile data (namely the bio, birthday, gender and location fields) to
+unauthorized users. While the frontend properly hid them, the backend missed a check to not include them in responses.
+Thanks to @cmrd-senya for finding and reporting the issue.
+
+# 0.5.1.1
+
+Update rails to 4.2.2, rack to 1.6.2 and jquery-rails to 4.0.4. This fixes
+
+* [CVE-2015-3226](https://groups.google.com/d/msg/rubyonrails-security/7VlB_pck3hU/3QZrGIaQW6cJ)
+* [CVE-2015-3227](https://groups.google.com/d/msg/rubyonrails-security/bahr2JLnxvk/x4EocXnHPp8J)
+* [CVE-2015-1840](https://groups.google.com/d/msg/rubyonrails-security/XIZPbobuwaY/fqnzzpuOlA4J)
+* [CVE-2015-3225](https://groups.google.com/d/msg/rubyonrails-security/gcUbICUmKMc/qiCotVZwXrMJ)
 
 # 0.5.1.0
 

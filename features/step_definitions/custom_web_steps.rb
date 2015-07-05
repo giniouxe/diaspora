@@ -127,12 +127,6 @@ And /^I reject the alert$/ do
   page.driver.browser.switch_to.alert.dismiss
 end
 
-When /^(.*) in the modal window$/ do |action|
-  within('#facebox') do
-    step action
-  end
-end
-
 When /^(.*) in the mention modal$/ do |action|
   within('#mentionModal') do
     step action
@@ -207,7 +201,7 @@ end
 
 
 Then /^the notification dropdown should be visible$/ do
-  find(:css, "#notification_dropdown").should be_visible
+  expect(find(:css, "#notification-dropdown")).to be_visible
 end
 
 Then /^the notification dropdown scrollbar should be visible$/ do
@@ -256,6 +250,10 @@ end
 
 Then /^I should see a flash message indicating failure$/ do
   flash_message_failure?.should be true
+end
+
+Then /^I should not see a flash message indicating failure$/ do
+  expect { flash_message_failure?.should }.to raise_error(Capybara::ElementNotFound)
 end
 
 Then /^I should see a flash message with a warning$/ do
